@@ -1,0 +1,8 @@
+bin/
+build/
+
+# python build artifacts
+*.egg-info
+
+# pLogger 
+eventlog
