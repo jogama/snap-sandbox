@@ -4,6 +4,7 @@ project(cmake_py)
 #-----------------------------
 # Python
 FIND_PACKAGE(PythonInterp)
+ADD_SUBDIRECTORY(culebra)
 
 #-----------------------------
 # C++
