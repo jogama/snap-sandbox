@@ -5,3 +5,6 @@ set(SRC
 
 add_executable(veo ${SRC})
 
+install(TARGETS veo
+  RUNTIME DESTINATION bin
+  )

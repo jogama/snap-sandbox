@@ -4,8 +4,16 @@ summary: "toy snap to understand cmake with behavior in snapcraft."
 description: |
   "little to say, it's just a toy."
 
+grade: devel
+confinement: devmode
+
 parts:
   everything:
     source: ..
     plugin: cmake
 
+apps:
+  cpp:
+    command: veo
+  # py:
+  #   command: culebra
