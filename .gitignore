@@ -6,3 +6,18 @@ build/
 
 # pLogger 
 eventlog
+
+# Generated from markdown
+*.html
+*.pdf
+
+# generated from snapcraft
+snap/*
+!snap/snapcraft.yaml
+
+# Pulled from git.sea-machines.com. They may be better as git modules.
+gpsd-smr/*
+TALOS-Gen1/*
+
+# Stopgap while we figure out a way to automate the build process fror talos
+!TALOS-Gen1/
