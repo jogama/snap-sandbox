@@ -1,6 +1,6 @@
 #!/usr/bin/env/ python3
 
-from setuptools import setup
+from setuptools import setup, find_packages
 import semver # because why not
 
 setup(
@@ -9,7 +9,7 @@ setup(
 
     ### Dependencies
     install_requires=[
-        'pickle',
+        'pillow',
         'semver',
     ],
 
