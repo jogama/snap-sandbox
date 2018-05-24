@@ -3,7 +3,7 @@ project(cmake_py)
 
 #-----------------------------
 # Python
-FIND_PACKAGE(PythonInterp)
+FIND_PACKAGE(PythonInterp 3)
 ADD_SUBDIRECTORY(culebra)
 
 #-----------------------------
