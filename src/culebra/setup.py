@@ -1,7 +1,7 @@
 #!/usr/bin/env/ python3
 
 from setuptools import setup, find_packages
-import semver # because why not
+#import semver # snap doesn't get the package; override stage? 
 
 setup(
     ### Metadata
