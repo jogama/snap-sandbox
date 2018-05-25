@@ -28,6 +28,10 @@ if __name__ == "__main__":
         elif "site-" in path:
             p = path.replace("site-", "dist-")
             
+        if "usr/lib" in path:
+            # TODO: need reference as to why this was necessary.
+            p = path.replace("usr/", "")        
+            
         if p not in paths:
             paths.append(p)    
     
