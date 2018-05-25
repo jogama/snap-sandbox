@@ -3,6 +3,10 @@
 from setuptools import setup, find_packages
 #import semver # snap doesn't get the package; override stage? 
 
+# for debuging
+import sys
+print(sys.path)
+
 setup(
     ### Metadata
     name='cmake_py',

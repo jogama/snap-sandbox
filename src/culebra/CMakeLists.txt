@@ -1,7 +1,6 @@
 # CMakeLists.txt for: culebra
 
-
-# Running `python3 -m pip` rather than `python3 setup.py` becasue the former leads to less PYTHONPATH errors
+#TODO: add an install option "SNAP", because most of the complexity here is for that. 
 set(PACKAGE_DIR ${CMAKE_SOURCE_DIR}/src/culebra)
 set(PROJ_BIN_DIR "${CMAKE_SOURCE_DIR}/bin") # This should have been set three directories above but didn't seem to propagate
 set(BUILD_COMMAND ${PYTHON_EXECUTABLE} -m pip install -e ${PACKAGE_DIR}) # trying pip and not setup to avoid pythonpath issues
@@ -13,15 +12,12 @@ set(INSTALL_OPTIONS -vvv
 #  --install-option="--install-scripts=${PROJ_BIN_DIR}"
   --disable-pip-version-check
   )
-# if snaps
-execute_process( COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/prepend_sitepackages.py $ENV{SNAPCRAFT_PART_INSTALL} OUTPUT_VARIABLE PYTHONPATH )
-# endif
-# We should be able to set an env var for a command by doing so befor running the command. That didn't work.
-#install(CODE "execute_process(COMMAND export PYTHONPATH=${PYTHONPATH})")
 
+execute_process( COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/prepend_sitepackages.py $ENV{SNAPCRAFT_PART_INSTALL} mdkir
+  OUTPUT_VARIABLE PYTHONPATH )
 
 #install(CODE "execute_process(COMMAND PYTHONPATH=${PYTHONPATH})")
-set(ENV{PYTHONPATH} ${PYTHONPATH})
+set(ENV{PYTHONPATH} $ENV{PYTHONPATH}:${PYTHONPATH})
 message(STATUS "pypath     = $ENV{PYTHONPATH}")
 message(STATUS "mypypath   = ${PYTHONPATH}")
 message(STATUS "prefix     = $ENV{SNAPCRAFT_PART_INSTALL}")
