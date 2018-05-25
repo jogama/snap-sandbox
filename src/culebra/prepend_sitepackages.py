@@ -17,4 +17,4 @@ if __name__ == "__main__":
     for path in sites:
         newpath += str(sys.argv[1]) + path + ":"
 
-    print(newpath[:-1])
+    print(newpath[:-1], end='') # no newline

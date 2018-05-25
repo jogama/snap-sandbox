@@ -19,6 +19,9 @@ execute_process( COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/prepend_sitepackages.py $EN
 # We should be able to set an env var for a command by doing so befor running the command. That didn't work.
 #install(CODE "execute_process(COMMAND export PYTHONPATH=${PYTHONPATH})")
 
+
+#install(CODE "execute_process(COMMAND PYTHONPATH=${PYTHONPATH})")
+set(ENV{PYTHONPATH} ${PYTHONPATH})
 message(STATUS "pypath     = $ENV{PYTHONPATH}")
 message(STATUS "mypypath   = ${PYTHONPATH}")
 message(STATUS "prefix     = $ENV{SNAPCRAFT_PART_INSTALL}")
@@ -27,7 +30,6 @@ message(STATUS "projbindir = ${PROJ_BIN_DIR}")
 message(STATUS "pyexe      = ${PYTHON_EXECUTABLE}")
 message(STATUS "bld cmd    = ${BUILD_COMMAND}")
 message(STATUS "instl opts = ${INSTALL_OPTIONS}")
-
 
 install(CODE "execute_process(COMMAND ${BUILD_COMMAND} ${INSTALL_OPTIONS} WORKING_DIRECTORY ${PACKAGE_DIR})")
 # install(CODE "execute_process(COMMAND ${BUILD_COMMAND} install --install-lib ${OUTPUT_DIR}/lib WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})")'
