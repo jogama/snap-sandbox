@@ -12,9 +12,9 @@ set(BUILD_COMMAND ${PYTHON_EXECUTABLE} setup.py develop) # trying pip and not se
 set(DEVELOP_OPTIONS
   # --optimize=2
 
-  --prefix=$ENV{SNAPCRAFT_PART_INSTALL}
+#  --prefix=$ENV{SNAPCRAFT_PART_INSTALL}
   --build-directory=${CMAKE_SOURCE_DIR}/build
-#  --install-dir=
+  --install-dir=$ENV{SNAPCRAFT_PART_INSTALL}/usr/lib/python3/dist-packages
 #  --site-dirs 
 #  --ignore-installed
    --script-dir=$ENV{SNAPCRAFT_PART_INSTALL}/bin # because cmake just 
