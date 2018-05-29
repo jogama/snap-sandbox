@@ -1,27 +1,21 @@
 #!/usr/bin/env/ python3
 
 from setuptools import setup, find_packages
-#import semver # snap doesn't get the package; override stage? 
-
-# for debuging
-import sys
-print(sys.path)
 
 setup(
     ### Metadata
-    name='cmake_py',
+    name='hello_en',
 
     ### Dependencies
     install_requires=[
-        'pillow',
-        'semver',
+        'mylib',
     ],
 
     ### Interface
     entry_points={
         'console_scripts': [
             # excecutable name = package.module:function
-            'culebra = culebra.culebra:main'
+            'hello_en = hello:hello:main'
         ]
     },
 
