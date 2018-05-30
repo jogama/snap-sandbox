@@ -12,15 +12,25 @@ parts:
     source: ..
     plugin: cmake
 
+  pylib:
+    source: ../src/mylibrary
+    plugin: python
+    python-packages: [setuptools]
+    # setuptools is not installed on vm:
+    # ImportError: No module named 'pkg_resources'
+    
   en:
+    after: [pylib]
     source: ../src/english
     plugin: python
 
   es:
+    after: [pylib]
     source: ../src/spanish
     plugin: python    
 
   zh:
+    after: [pylib]
     source: ../src/chinese
     plugin: python
 
