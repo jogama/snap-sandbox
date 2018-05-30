@@ -13,17 +13,16 @@ parts:
     plugin: cmake
 
   en:
-    source: ../src/hello_en
+    source: ../src/english
     plugin: python
 
   es:
-    source: ../src/hello_es
+    source: ../src/spanish
     plugin: python    
 
   zh:
-    source: ../src/hello_zh
+    source: ../src/chinese
     plugin: python
-  
 
 apps:
   caller:

@@ -15,7 +15,7 @@ setup(
     entry_points={
         'console_scripts': [
             # excecutable name = package.module:function
-            'hello_en = hello:hello:main'
+            'hello_en = hello.hello:main'
         ]
     },
 
