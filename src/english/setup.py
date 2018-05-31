@@ -9,6 +9,7 @@ setup(
     ### Dependencies
     install_requires=[
         'mylib',
+        'setuptools', 
     ],
 
     ### Interface

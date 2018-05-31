@@ -2,21 +2,23 @@ name: cmake-py # you probably want to 'snapcraft register <name>'
 version: '0.0.0' # just for humans, typically '1.2+git' or '1.3.2'
 summary: "toy snap to understand cmake with behavior in snapcraft."
 description: |
-  "little to say, it's just a toy."
+  "using this snap to test the following: multiple python parts, python parts build with c++/pybind11, installing python packages from pip, installing the entire repository as one cmake part. Running cmake-py.roll_call simply runs the latter three python modules to ensure they end up in the cpp executable's path."
 
 grade: devel
 confinement: devmode
 
 parts:
-  caller:
+  cpp:
     source: ..
     plugin: cmake
 
   pylib:
     source: ../src/mylibrary
     plugin: python
+
+    # dependency for child packages using consoles_scripts...
     python-packages: [setuptools]
-    # setuptools is not installed on vm:
+    # ..yet setuptools is not included by snapcraft:
     # ImportError: No module named 'pkg_resources'
     
   en:
@@ -35,5 +37,5 @@ parts:
     plugin: python
 
 apps:
-  caller:
+  cpp:
     command: roll_call
